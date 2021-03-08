@@ -1,4 +1,4 @@
-import { Col, Row, Typography, List, Card, Tag, Divider } from "antd";
+import { Col, Row, Typography, List, Tag, Divider } from "antd";
 import TicketList from "../components/tickets/TicketList";
 
 const { Title, Text } = Typography;
