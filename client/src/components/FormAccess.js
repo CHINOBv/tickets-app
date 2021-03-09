@@ -24,7 +24,9 @@ const tailLayout = {
 const FormAccess = () => {
   const { push } = useHistory();
 
-  const onFinish = (values) => {
+  const onFinish = ({ agent, desktop }) => {
+    localStorage.setItem("agent", agent);
+    localStorage.setItem("desktop", desktop);
     push("/dashboard");
   };
 

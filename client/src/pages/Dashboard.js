@@ -1,9 +1,22 @@
 import { CloseCircleOutlined, RightOutlined } from "@ant-design/icons";
 import { Button, Col, Row, Typography } from "antd";
+import { useState } from "react";
+import { Redirect, useHistory } from "react-router-dom";
+import { getUserStorage } from "../helpers/getUserStorage";
+import useHideMenu from "../hooks/useHideMenu";
 const { Title, Text } = Typography;
 const Dashboard = () => {
-  const exit = () => {};
+  const [user] = useState(() => getUserStorage());
+  const { replace } = useHistory();
+  const exit = () => {
+    localStorage.clear();
+    replace("/access");
+  };
   const nextTicket = () => {};
+  useHideMenu(false);
+  if (!user.agent || !user.desktop) {
+    return <Redirect to="/access" />;
+  }
   return (
     <>
       <Row>

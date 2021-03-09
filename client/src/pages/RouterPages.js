@@ -16,14 +16,17 @@ import Access from "./Access";
 import Dashboard from "./Dashboard";
 import Queue from "./Queue";
 import CreateTicket from "./CreateTicket";
+import { useContext } from "react";
+import { UiContext } from "../context/UiContext";
 
 const { Content, Footer, Sider } = Layout;
 
 const RouterPages = () => {
+  const { hideMenu } = useContext(UiContext);
   return (
     <Router>
       <Layout style={{ minHeight: "100vh" }}>
-        <Sider collapsedWidth="0" breakpoint="md">
+        <Sider collapsedWidth="0" breakpoint="md" hidden={hideMenu}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
             <Menu.Item key="1" icon={<PieChartOutlined />}>

@@ -1,5 +1,6 @@
 import { Col, Row, Typography, List, Tag, Divider } from "antd";
 import TicketList from "../components/tickets/TicketList";
+import useHideMenu from "../hooks/useHideMenu";
 
 const { Title, Text } = Typography;
 
@@ -41,6 +42,7 @@ const data = [
   },
 ];
 const Queue = () => {
+  useHideMenu(true);
   return (
     <>
       <Title level={1}>Serving The Client: </Title>
